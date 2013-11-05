@@ -1,19 +1,11 @@
 Photogur::Application.routes.draw do
+  resources :pictures
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root :to => "pictures#index"
- get 'pictures' => 'pictures#index'
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
 
-post 'pictures' => "pictures#create"
-get 'pictures/new' => 'pictures#new'
-get 'pictures/:id' => 'pictures#show', as: "picture"
-
-get 'pictures/:id/edit' => "pictures#edit", as: "edit_picture"
-patch 'pictures/:id' => "pictures#update"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
