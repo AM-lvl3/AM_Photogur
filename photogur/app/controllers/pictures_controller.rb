@@ -3,6 +3,7 @@ class PicturesController < ApplicationController
 	def index
 
 	@newest_first = Picture.newest_first
+  @created_before = Picture.created_before
     
   end
 
@@ -53,7 +54,7 @@ class PicturesController < ApplicationController
 
     def self.artist(artist)
     Picture.where("artist = ?", artist)
-  end
+   end
 
   def self.title(title)
     Picture.where("title = ?", title)
