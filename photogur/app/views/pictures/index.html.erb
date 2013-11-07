@@ -1,13 +1,17 @@
+
 <h1>[photogur]</h1>
-<h3> total: <%= @pictures.length %></h3>
+
 <%= link_to "upload", "/pictures/new" %>
 
 
+<ul>
+<% @newest_first.each do |picture| %>
+		<li><%= picture.title %></li>
+		<%= link_to image_tag(picture.url), "/pictures/#{picture.id}" %>
+	<% end %>
+</ul>
 
-<% @pictures.each do |picture| %>
-	<p><%= picture[:title] %>, <%= picture[:artist] %> </p>
-	<%= link_to image_tag(picture.url), "/pictures/#{picture.id}" %>
-<% end %>
+
 <footer>
 <p>[photogur], created by morris web dev inc., 2013</p>
 </footer>

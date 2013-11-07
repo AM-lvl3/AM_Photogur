@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
 	def index
 
-	@pictures = Picture.all
+	@newest_first = Picture.newest_first
     
   end
 
@@ -49,6 +49,18 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to pictures_url
+  end
+
+    def self.artist(artist)
+    Picture.where("artist = ?", artist)
+  end
+
+  def self.title(title)
+    Picture.where("title = ?", title)
+  end
+
+  def self.url(url)
+    Picture.where("url = ?", url)
   end
   
   private
